@@ -1,0 +1,9 @@
+
+Multivariate(
+	Y(
+		:"%Fat"n, :Age, :Weight, :Height, :BMI, :Neck, :Chest, :Abdomen, :Hip,
+		:Thigh, :Knee, :Ankle, :Biceps, :Forearm, :Wrist
+	),
+	Estimation Method( "Row-wise" ),
+	Scatterplot Matrix( 1 )
+);

@@ -1,0 +1,63 @@
+
+Fit Model(
+	Y( :"%Fat"n ),
+	Effects( :Age, :Neck, :Abdomen, :Hip, :Thigh, :Forearm, :Wrist ),
+	Personality( "Standard Least Squares" ),
+	History(
+		Effects( :Age, :Height, :Neck, :Abdomen, :Hip, :Thigh, :Forearm, :Wrist ),
+		Effects(
+			:Age, :Height, :Neck, :Chest, :Abdomen, :Hip, :Thigh, :Forearm, :Wrist
+		),
+		Effects(
+			:Age, :Height, :Neck, :Chest, :Abdomen, :Hip, :Thigh, :Biceps, :Forearm,
+			:Wrist
+		),
+		Effects(
+			:Age, :Height, :BMI, :Neck, :Chest, :Abdomen, :Hip, :Thigh, :Biceps,
+			:Forearm, :Wrist
+		),
+		Effects(
+			:Age, :Height, :BMI, :Neck, :Chest, :Abdomen, :Hip, :Thigh, :Ankle,
+			:Biceps, :Forearm, :Wrist
+		),
+		Effects(
+			:Age, :Height, :BMI, :Neck, :Chest, :Abdomen, :Hip, :Thigh, :Knee,
+			:Ankle, :Biceps, :Forearm, :Wrist
+		),
+		Effects(
+			:Age, :Weight, :Height, :BMI, :Neck, :Chest, :Abdomen, :Hip, :Thigh,
+			:Knee, :Ankle, :Biceps, :Forearm, :Wrist
+		)
+	),
+	Emphasis( "Effect Screening" ),
+	Run(
+		Profiler(
+			1,
+			Confidence Intervals( 1 ),
+			Arrange in Rows( 8 ),
+			Term Value(
+				Age( 44.885, Lock( 0 ), Show( 1 ) ),
+				Neck( 37.992, Lock( 0 ), Show( 1 ) ),
+				Abdomen( 92.556, Lock( 0 ), Show( 1 ) ),
+				Hip( 99.905, Lock( 0 ), Show( 1 ) ),
+				Thigh( 59.406, Lock( 0 ), Show( 1 ) ),
+				Forearm( 28.664, Lock( 0 ), Show( 1 ) ),
+				Wrist( 18.2298, Lock( 0 ), Show( 1 ) )
+			)
+		),
+		:"%Fat"n << {Summary of Fit( 1 ), Analysis of Variance( 1 ),
+		Parameter Estimates( 1 ), Effect Details( 0 ), Lack of Fit( 0 ),
+		Sorted Estimates( 0 ), Plot Actual by Predicted( 1 ), Plot Regression( 0 ),
+		Plot Residual by Predicted( 1 ), Plot Residual by Row( 1 ),
+		Plot Studentized Residuals( 1 ), Plot Effect Leverage( 0 ),
+		Plot Residual by Normal Quantiles( 1 ), Box Cox Y Transformation( 0 )}
+	),
+	SendToReport(
+		Dispatch(
+			{"Response %Fat"},
+			"Parameter Estimates",
+			OutlineBox,
+			{Close( 0 )}
+		)
+	)
+);
